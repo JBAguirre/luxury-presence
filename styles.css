@@ -508,6 +508,93 @@ h1, h2, h3 {
     transition: background-color 0.3s ease;
 }
 
+/* Get It Sold Section */
+.get-it-sold-section {
+    padding: var(--padding-y) var(--padding-x);
+    background-color: var(--bg-neutral);
+}
+
+.get-it-sold-section .section-title.text-center {
+    text-align: center;
+    color: var(--primary-orange);
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    align-items: center; /* Keeps the side cards vertically centered relative to the taller middle card */
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Side Cards */
+.standard-card {
+    background-color: var(--bg-stat);
+    color: var(--text-dark);
+}
+
+.standard-card .card-content {
+    padding: 30px 24px 40px;
+}
+
+/* Middle Taller Card */
+.featured-card {
+    background-color: var(--primary-orange);
+    color: var(--text-white);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: scale(1.08); /* Scales the entire card up to make it taller and wider */
+    z-index: 2;
+}
+
+.featured-card .card-content {
+    padding: 30px 24px 40px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+    line-height: 1.2;
+}
+
+.card-content p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.card-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .featured-card {
+        transform: scale(1); /* Removes the scale effect on mobile so it doesn't break off-screen */
+        order: -1; /* Optional: Moves the featured card to the top on mobile */
+    }
+}
+
 .dot.active, .dot:hover {
     background-color: var(--text-white);
 }
@@ -527,6 +614,109 @@ h1, h2, h3 {
     }
     .slide-text {
         padding: 50px 40px 40px; /* Keeps mobile padding manageable */
+    }
+}
+/* Companies Banner Section */
+.companies-section {
+    background-color: var(--primary-orange);
+    padding: 30px var(--padding-x);
+}
+
+.companies-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.company-logo-wrap {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.company-logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gallery Slideshow Section */
+.gallery-section {
+    background-color: var(--bg-neutral);
+    padding: 0;
+}
+
+.gallery-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Changed from 450px to 80% of the viewport height */
+    overflow: hidden;
+    background-color: var(--primary-blue);
+}
+
+.gallery-slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.gallery-slide.active {
+    display: block;
+    opacity: 1;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gallery Dots */
+.gallery-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.g-dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.g-dot.active, .g-dot:hover {
+    background-color: var(--text-white);
+}
+
+@media (max-width: 768px) {
+    .gallery-carousel-wrapper {
+        height: 280px;
+    }
+    .companies-container {
+        gap: 20px;
+    }
+    .company-logo-wrap {
+        width: 70px;
+        height: 70px;
     }
 }
 

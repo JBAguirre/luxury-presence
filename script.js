@@ -76,4 +76,35 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+// Gallery Slideshow Logic
+    const gallerySlides = document.querySelectorAll('.gallery-slide');
+    const galleryDots = document.querySelectorAll('.g-dot');
+    let currentGallerySlide = 0;
+
+    if (gallerySlides.length > 0) {
+        const showGallerySlide = (index) => {
+            gallerySlides.forEach(slide => slide.classList.remove('active'));
+            galleryDots.forEach(dot => dot.classList.remove('active'));
+            
+            gallerySlides[index].classList.add('active');
+            galleryDots[index].classList.add('active');
+        };
+
+        const nextGallerySlide = () => {
+            currentGallerySlide = (currentGallerySlide + 1) % gallerySlides.length;
+            showGallerySlide(currentGallerySlide);
+        };
+
+        let galleryInterval = setInterval(nextGallerySlide, 4000);
+
+        galleryDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(galleryInterval);
+                currentGallerySlide = index;
+                showGallerySlide(currentGallerySlide);
+                galleryInterval = setInterval(nextGallerySlide, 4000);
+            });
+        });
+    }
 });
