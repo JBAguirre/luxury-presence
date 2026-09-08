@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marci Metzger Homes | The Ridge Realty Group</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="brand">
+    <img src="images/logo.png" alt="Marci Metzger Homes" class="brand-logo">
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <span class="bar"></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#listings">Listings</a>
+      <a href="#move">Let's Move</a>
+      <a href="#about">About Us</a>
+    </nav>
+
+    <a href="tel:12069196886" class="btn btn-rust header-cta">Call Now</a>
+  </div>
+</header>
+
+<main id="home">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-media">
+      <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1600&h=1000&fit=crop"
+           alt="Scenic mountain landscape with a lake and golf course community">
+    </div>
+    <div class="hero-copy container">
+      <p class="eyebrow">The Ridge Realty Group</p>
+      <h1>Marci Metzger</h1>
+      <p class="role">Pahrump Realtor</p>
+      <a href="tel:12069196886" class="btn btn-rust">Call Now</a>
+    </div>
+  </section>
+
+  <!-- ============ SEARCH BAR ============ -->
+  <div class="search-bar-wrap">
+    <form class="search-bar" aria-label="Property search">
+      <div class="container">
+        <div class="search-fields">
+          <div class="search-field">
+            <label for="location">Location</label>
+            <select id="location" name="location">
+              <option value="">Select location</option>
+              <option selected>Texas</option>
+              <option>Nevada</option>
+              <option>Arizona</option>
+              <option>California</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label for="propertyType">Property Type</label>
+            <select id="propertyType" name="propertyType">
+              <option value="">Select type</option>
+              <option selected>Apartment</option>
+              <option>House</option>
+              <option>Townhouse</option>
+              <option>Land</option>
+            </select>
+          </div>
+
+          <div class="search-field">
+            <label id="budgetLabel">Budget Range</label>
+            <div class="budget-range" role="group" aria-labelledby="budgetLabel">
+              <input type="number" id="budgetMin" placeholder="Min" inputmode="numeric" aria-label="Minimum budget">
+              <span class="sep" aria-hidden="true">–</span>
+              <input type="number" id="budgetMax" placeholder="Max" inputmode="numeric" aria-label="Maximum budget">
+            </div>
+          </div>
+
+          <button type="submit" class="search-submit">Search</button>
+        </div>
+
+        <button type="button" class="advanced-toggle" id="advancedToggle" aria-expanded="false" aria-controls="advancedFields">
+          <span class="chevron" aria-hidden="true"></span>
+          Advanced Filtering
+        </button>
+
+        <div class="advanced-fields" id="advancedFields">
+          <div class="search-field">
+            <label for="beds">Bedrooms</label>
+            <select id="beds">
+              <option value="">Any</option>
+              <option>1+</option><option>2+</option><option>3+</option><option>4+</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="baths">Bathrooms</label>
+            <select id="baths">
+              <option value="">Any</option>
+              <option>1+</option><option>2+</option><option>3+</option>
+            </select>
+          </div>
+          <div class="search-field">
+            <label for="sqft">Min Square Feet</label>
+            <input type="number" id="sqft" placeholder="e.g. 1200" inputmode="numeric">
+          </div>
+          <div class="search-field">
+            <label for="sortBy">Sort By</label>
+            <select id="sortBy">
+              <option value="">Newest</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- ============ AGENT ABOUT ============ -->
+  <section class="about-agent" id="about" aria-labelledby="agentName">
+    <div class="container agent-card">
+      <div class="agent-photo">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=640&h=800&fit=crop"
+             alt="Portrait of Marci Metzger, real estate agent, smiling in a navy blazer">
+      </div>
+
+      <div class="agent-info">
+        <h2 id="agentName">Marci Metzger</h2>
+        <p class="role">Realtor for nearly 3 decades</p>
+        <p class="bio">
+          Marci has helped hundreds of families buy and sell homes across the Pahrump and Las
+          Vegas area since 1996. Known for her straight-talk guidance and deep market
+          knowledge, she's consistently ranked among the region's top-producing agents.
+        </p>
+
+        <div class="agent-actions">
+          <a href="tel:12069196886" class="btn btn-rust">Call Now</a>
+          <a href="#contact" class="btn btn-outline">Send a Message</a>
+        </div>
+
+        <ul class="agent-stats" role="list">
+          <li class="stat-pill"><strong>#1</strong> Pahrump Residential Sales (Last 5 Years)</li>
+          <li class="stat-pill"><strong>88</strong> properties closed in 2019</li>
+          <li class="stat-pill"><strong>Top 100</strong> Residential Sales in Las Vegas (2019)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services" aria-labelledby="servicesHeading">
+    <div class="container">
+      <h2 id="servicesHeading">Our Services</h2>
+      <article class="services-card">
+        <div class="services-text">
+          <h3>Real Estate Done Right</h3>
+          <p>
+            Nervous about your property adventure? Don't be. Whether you're getting ready to
+            buy or sell your residence, looking at investment properties, or just curious
+            about the markets, our team ensures you get the best experience possible!
+          </p>
+        </div>
+        <div class="services-image">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&h=700&fit=crop"
+               alt="Bright living room corner with a small side table, plant, and books">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ GET IT SOLD ============ -->
+  <section class="sold" id="listings" aria-labelledby="soldHeading">
+    <div class="container">
+      <h2 id="soldHeading">Get It Sold</h2>
+      <div class="sold-grid">
+
+        <article class="sold-card">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=520&fit=crop"
+               alt="Real estate agent shaking hands with a happy client over a laptop">
+          <div class="sold-body">
+            <h3>Don't Just List it&hellip;</h3>
+            <p>Get it SOLD! We exhaust every avenue to ensure our listings are at the fingertips of every possible buyer, getting you top dollar for your home.</p>
+          </div>
+        </article>
+
+        <article class="sold-card featured">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=520&fit=crop"
+               alt="Client and agent shaking hands after closing a home sale">
+          <div class="sold-body">
+            <h3>Top Residential Sales<br>Last 5 Years</h3>
+            <p>We helped nearly 90 clients in 2021, and closed 28.5 million in sales! Our team works hard every day to grow and learn, so that we may continue to excel in our market. Our clients deserve our best, &amp; we want to make sure our best is here every year.</p>
+          </div>
+        </article>
+
+        <article class="sold-card">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=520&fit=crop"
+               alt="Real estate agent shaking hands with a first-time home buyer">
+          <div class="sold-body">
+            <h3>Guide to Buyers</h3>
+            <p>Nobody knows the market like we do. Enjoy having a pro at your service. Market analysis, upgrades lists, contractors on speed dial, &amp; more!</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PARTNER LOGOS ============ -->
+  <div class="partners" aria-label="Affiliations and certifications">
+    <div class="container logos">
+      <span class="logo-chip">KW</span>
+      <span class="logo-chip">Pahrump Valley</span>
+      <span class="logo-chip">Equal Housing</span>
+      <span class="logo-chip">Ridge</span>
+    </div>
+  </div>
+
+  <!-- ============ AERIAL IMAGE ============ -->
+  <div class="aerial">
+    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&h=700&fit=crop"
+         alt="Aerial view of a desert residential neighborhood with a golf course and lake">
+  </div>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact" aria-labelledby="contactHeading">
+    <div class="container">
+      <h2 id="contactHeading">Contact Us</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Marci Metzger</h3>
+          <p class="org">The Ridge Realty Group</p>
+
+          <dl>
+            <dt>Location</dt>
+            <dd>3190 HW-160, Suite F, Pahrump, Nevada 89048, United States</dd>
+
+            <dt>Phone</dt>
+            <dd><a href="tel:12069196886">(206) 919-6886</a></dd>
+
+            <dt>Office Hours</dt>
+            <dd>Open daily &nbsp;8:00 am &ndash; 7:00 pm<br>
+              Appointments outside office hours available upon request. Just call!</dd>
+          </dl>
+
+          <p class="org" style="margin-top:20px; color:var(--rust); font-weight:700; text-transform:uppercase; font-size:12px;">Follow Us</p>
+          <nav class="social-row" aria-label="Social media">
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="LinkedIn">in</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Twitter">TW</a>
+          </nav>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-field" id="nameField">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" autocomplete="name">
+            <span class="field-error">Please enter your name.</span>
+          </div>
+
+          <div class="form-field" id="emailField">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="johndoe@email.com" autocomplete="email">
+            <span class="field-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-field" id="messageField">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write something..."></textarea>
+            <span class="field-error">Please enter a message.</span>
+          </div>
+
+          <button type="submit" class="btn btn-rust" style="align-self:flex-start;">Send Message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="map-embed" role="img" aria-label="Map showing office location in Pahrump, Nevada">
+        <svg class="pin" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <nav class="social-row" aria-label="Social media">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="LinkedIn">in</a>
+      <a href="#" aria-label="Facebook">FB</a>
+      <a href="#" aria-label="Twitter">TW</a>
+    </nav>
+    <p>Copyright &copy; 2028 Marci Metzger &middot; All Rights Reserved</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
