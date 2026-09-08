@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;600;700&display=swap');
+
 :root{
   --navy:#26364a;
   --navy-soft:#3d4f66;
@@ -19,15 +21,18 @@
 
 *, *::before, *::after{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
-body{
-  margin:0;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color:var(--text);
-  background:var(--cream);
-  line-height:1.5;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.5;
 }
 img{ max-width:100%; display:block; }
-h1,h2,h3{ font-family: Georgia, "Times New Roman", serif; margin:0; }
+h1, h2, h3 { 
+  font-family: "DM Serif Display", serif; 
+  margin: 0; 
+}
 a{ color:inherit; }
 button{ font-family:inherit; }
 
@@ -106,12 +111,12 @@ textarea:focus-visible{
   width: auto;         /* Maintains the aspect ratio */
   object-fit: contain; /* Prevents distortion */
 }
-.brand .brand-name{
-  font-family: Georgia, serif;
-  font-weight:700;
-  font-size:16px;
-  letter-spacing:.05em;
-  text-transform:uppercase;
+.brand .brand-name {
+  font-family: "DM Serif Display", serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
 .brand .brand-tag{
   font-family:"Brush Script MT", cursive;
@@ -200,9 +205,9 @@ textarea:focus-visible{
 }
 .hero-media{
   position:relative;
-  height:62vh;
+  height:76vh;
   min-height:420px;
-  max-height:640px;
+  max-height:700px;
   overflow:hidden;
 }
 .hero-media img{
