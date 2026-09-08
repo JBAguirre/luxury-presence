@@ -1,94 +1,79 @@
-/* =========================================================
-   Marci Metzger Homes — Interactions
-   Modular, dependency-free vanilla JS
-   ========================================================= */
-
-(function initMobileNav(){
-  const toggle = document.getElementById('navToggle');
-  const nav = document.getElementById('primaryNav');
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close mobile menu after a link is chosen
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-})();
-
-(function initAdvancedFiltering(){
-  const toggle = document.getElementById('advancedToggle');
-  const panel = document.getElementById('advancedFields');
-  if (!toggle || !panel) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-})();
-
-(function initSearchForm(){
-  const form = document.querySelector('.search-bar');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const min = document.getElementById('budgetMin').value;
-    const max = document.getElementById('budgetMax').value;
-    if (min && max && Number(min) > Number(max)){
-      alert('Minimum budget should be less than maximum budget.');
-      return;
-    }
-    // In production this would navigate to a filtered listings page.
-    console.log('Search submitted', {
-      location: document.getElementById('location').value,
-      propertyType: document.getElementById('propertyType').value,
-      budgetMin: min,
-      budgetMax: max
-    });
-  });
-})();
-
-(function initContactForm(){
-  const form = document.getElementById('contactForm');
-  const status = document.getElementById('formStatus');
-  if (!form) return;
-
-  const fields = [
-    { id: 'name', wrapper: 'nameField', validate: v => v.trim().length > 0 },
-    { id: 'email', wrapper: 'emailField', validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) },
-    { id: 'message', wrapper: 'messageField', validate: v => v.trim().length > 0 },
-  ];
-
-  function validateField(field){
-    const input = document.getElementById(field.id);
-    const wrapper = document.getElementById(field.wrapper);
-    const valid = field.validate(input.value);
-    wrapper.classList.toggle('invalid', !valid);
-    input.setAttribute('aria-invalid', String(!valid));
-    return valid;
-  }
-
-  fields.forEach(field => {
-    document.getElementById(field.id).addEventListener('blur', () => validateField(field));
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const allValid = fields.map(validateField).every(Boolean);
-
-    if (!allValid){
-      status.textContent = 'Please fix the highlighted fields and try again.';
-      return;
+document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (mobileMenuToggle && mainNav) {
+        mobileMenuToggle.addEventListener('click', () => {
+            const isExpanded = mobileMenuToggle.getAttribute('aria-expanded') === 'true';
+            mobileMenuToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNav.classList.toggle('active');
+        });
     }
 
-    status.textContent = 'Thanks! Your message has been sent — Marci will get back to you soon.';
-    form.reset();
-  });
-})();
+// Advanced Filtering Toggle (Updated IDs)
+    const filterToggleBtn = document.getElementById('advancedToggle');
+    const advancedFiltersDiv = document.getElementById('advancedFields');
+
+    if (filterToggleBtn && advancedFiltersDiv) {
+        filterToggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isExpanded = filterToggleBtn.getAttribute('aria-expanded') === 'true';
+            
+            filterToggleBtn.setAttribute('aria-expanded', !isExpanded);
+            advancedFiltersDiv.classList.toggle('active');
+        });
+    }
+
+    // Basic Form Prevention (Updated IDs)
+    const searchForm = document.getElementById('searchForm');
+    if (searchForm) {
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const minBudget = document.getElementById('budgetMin').value;
+            const maxBudget = document.getElementById('budgetMax').value;
+            
+            if (minBudget && maxBudget && parseInt(minBudget) > parseInt(maxBudget)) {
+                alert("Minimum budget cannot be greater than maximum budget.");
+                return;
+            }
+            
+            console.log("Search form submitted with parameters.");
+        });
+    }
+
+    // Services Carousel Logic
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    let currentSlide = 0;
+    let slideInterval;
+
+    if (slides.length > 0) {
+        const showSlide = (index) => {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        };
+
+        const nextSlide = () => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        };
+
+        // Start auto-play (5 seconds)
+        slideInterval = setInterval(nextSlide, 5000); 
+
+        // Manual dot controls
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(slideInterval); // Pause auto-play when user clicks
+                currentSlide = index;
+                showSlide(currentSlide);
+                slideInterval = setInterval(nextSlide, 5000); // Resume auto-play
+            });
+        });
+    }
+});
